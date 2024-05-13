@@ -1,0 +1,48 @@
+module.exports = {
+  parser: "@typescript-eslint/parser",
+  parserOptions: {
+    project: "tsconfig.json",
+    tsconfigRootDir: __dirname,
+    sourceType: "module",
+  },
+  plugins: ["@typescript-eslint/eslint-plugin", "prettier"],
+  extends: [
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended",
+  ],
+  root: true,
+  env: {
+    node: true,
+    jest: true,
+  },
+  ignorePatterns: [".eslintrc.js"],
+  rules: {
+    "@typescript-eslint/interface-name-prefix": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    semi: ["error", "always"],
+    "max-len": ["error", { code: 100 }],
+    indent: ["error", 2],
+    "linebreak-style": ["error", "unix"],
+    quotes: ["error", "single"],
+    "no-multi-spaces": "error",
+    complexity: ["error", { max: 10 }],
+    "max-params": ["error", { max: 3 }],
+    "no-duplicate-imports": "error",
+    "no-unused-vars": "error",
+    "no-magic-numbers": ["error", { ignore: [0, 1], ignoreArrayIndexes: true }],
+    "sort-imports": [
+      "error",
+      { ignoreCase: true, ignoreDeclarationSort: true },
+    ],
+    "consistent-return": "error",
+    "no-return-await": "error",
+    "prefer-const": "error",
+    "no-implicit-coercion": "error",
+    "padding-line-between-statements": [
+      "error",
+      { blankLine: "always", prev: "*", next: "return" },
+    ],
+  },
+};
